@@ -1,0 +1,45 @@
+{
+  "name": "iam-system",
+  "version": "1.0.0",
+  "description": "Enterprise-grade Identity and Access Management System with RBAC and MFA",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "jest",
+    "test:integration": "jest --config jest.integration.config.js",
+    "db:migrate": "node migrations/run.js",
+    "db:seed": "node migrations/seed.js"
+  },
+  "keywords": [
+    "iam",
+    "rbac",
+    "mfa",
+    "authentication",
+    "authorization",
+    "security"
+  ],
+  "author": "Jose",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "crypto-js": "^4.2.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-rate-limit": "^7.1.5",
+    "helmet": "^7.1.0",
+    "joi": "^17.11.0",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.11.3",
+    "qrcode": "^1.5.3",
+    "speakeasy": "^2.0.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.2",
+    "supertest": "^6.3.3"
+  }
+}
