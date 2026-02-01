@@ -132,5 +132,3 @@ Follow these instructions to set up the project locally for development and test
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
----
-*Built for the cybersecurity portfolio of [Your Name].*
