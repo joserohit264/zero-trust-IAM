@@ -75,8 +75,8 @@ Follow these instructions to set up the project locally for development and test
 
 1.  **Clone the Repository**
     ```bash
-    git clone https://github.com/yourusername/iam-system.git
-    cd iam-system
+    git clone https://github.com/joserohit264/zero-trust-IAM
+    cd zero-trust-IAM
     ```
 
 2.  **Install Dependencies**
