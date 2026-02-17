@@ -104,7 +104,7 @@ router.post('/login', loginLimiter, validateBody('login'), async (req, res) => {
                     email: user.email,
                     firstName: user.first_name,
                     lastName: user.last_name,
-                    roles: user.roles.map(r => r.name),
+                    roles: user.roles.map(r => ({ id: r.id, name: r.name })),
                     mfaEnabled: user.mfa_enabled
                 },
                 requiresMfa: user.mfa_enabled,
