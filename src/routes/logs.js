@@ -6,14 +6,14 @@ const express = require('express');
 const router = express.Router();
 
 const AuditLog = require('../models/AuditLog');
-const { authenticate, requireMfaVerified } = require('../middleware/auth');
-const { requireAnyPermission } = require('../middleware/rbac');
+const { authenticate } = require('../middleware/auth');
+const { requireRole } = require('../middleware/rbac');
 const { validateQuery } = require('../middleware/validation');
 const { logAction } = require('../middleware/auditLogger');
 const { HTTP_STATUS, AUDIT_ACTIONS } = require('../config/constants');
 
-// All routes require authentication, MFA verification, and log read permission
-router.use(authenticate, requireMfaVerified, requireAnyPermission('logs:read'));
+// All routes require authentication and admin role
+router.use(authenticate, requireRole('admin'));
 
 /**
  * GET /api/logs
@@ -91,7 +91,7 @@ router.get('/statistics', async (req, res) => {
  * GET /api/logs/export
  * Export logs in CSV or JSON format
  */
-router.get('/export', requireAnyPermission('logs:export'), validateQuery('logFilters'), async (req, res) => {
+router.get('/export', validateQuery('logFilters'), async (req, res) => {
     try {
         const format = req.query.format || 'json';
         const filters = req.validatedQuery || {};

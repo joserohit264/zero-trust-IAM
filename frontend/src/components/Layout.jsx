@@ -39,7 +39,7 @@ const Layout = ({ children }) => {
                         </NavLink>
                     )}
 
-                    {hasAnyRole('admin', 'auditor') && (
+                    {hasRole('admin') && (
                         <NavLink
                             to="/logs"
                             className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}

@@ -2,7 +2,7 @@
  * Database Seeder
  * Creates default admin user for initial setup
  */
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const { pool } = require('../src/config/database');
 
 async function seed() {

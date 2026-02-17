@@ -29,7 +29,7 @@ const Dashboard = () => {
             }
 
             // Fetch recent logs if admin or auditor
-            if (hasAnyRole('admin', 'auditor')) {
+            if (hasRole('admin')) {
                 const logsRes = await fetch('/api/logs?limit=10', { credentials: 'include' });
                 if (logsRes.ok) {
                     const logsData = await logsRes.json();
@@ -149,7 +149,7 @@ const Dashboard = () => {
             )}
 
             {/* Recent Activity - Admin/Auditor Only */}
-            {hasAnyRole('admin', 'auditor') && (
+            {hasRole('admin') && (
                 <div className="card">
                     <div className="flex justify-between items-center mb-4">
                         <h3>Recent Activity</h3>
@@ -216,7 +216,7 @@ const Dashboard = () => {
                             👥 Manage Users
                         </a>
                     )}
-                    {hasAnyRole('admin', 'auditor') && (
+                    {hasRole('admin') && (
                         <a href="/logs" className="btn btn-secondary">
                             📋 View Logs
                         </a>

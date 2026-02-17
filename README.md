@@ -20,7 +20,7 @@ The application is built using a modern, scalable technology stack:
 | **Frontend** | React 18, Vite | Component-based UI, fast HMR, responsive design |
 | **Backend** | Node.js, Express.js | Event-driven architecture, RESTful API |
 | **Database** | PostgreSQL 15 | Relational data, ACID transactions, complex queries |
-| **Security** | bcrypt, speakeasy | Adaptive hashing, TOTP generation (RFC 6238) |
+| **Security** | bcryptjs, speakeasy | Adaptive hashing, TOTP generation (RFC 6238) |
 | **Auth** | JWT, AES-256-GCM | Stateless sessions, secret encryption at rest |
 | **Validation** | Joi | Strict request payload validation |
 
@@ -28,7 +28,7 @@ The application is built using a modern, scalable technology stack:
 
 ### 🛡️ Core Security
 *   **Multi-Factor Authentication (MFA)**: Time-based One-Time Password (TOTP) integration compatible with Google/Microsoft Authenticator.
-*   **Secure Authentication**: Bcrypt password hashing (cost factor 12), account lockout policies, and session management via HTTP-only cookies.
+*   **Secure Authentication**: bcryptjs password hashing (cost factor 12), account lockout policies, and session management via HTTP-only cookies.
 *   **Rate Limiting**: granular protection against brute-force attacks on login, MFA, and API endpoints.
 
 ### 👥 Identity & Access Control
@@ -38,8 +38,8 @@ The application is built using a modern, scalable technology stack:
 
 ### 📊 Compliance & Observability
 *   **Tamper-Evident Audit Logs**: Append-only logging with **cryptographic hash chaining** to detect integrity violations.
-*   **Real-Time Monitoring**: Admin dashboard featuring live activity feeds and system statistics.
-*   **Data Export**: Comprehensive log filtering and export capabilities (JSON/CSV) for external auditing.
+*   **Real-Time Monitoring**: Admin-only dashboard featuring live activity feeds and system statistics.
+*   **Data Export**: Admin-only log filtering and export capabilities (JSON/CSV) for external auditing.
 
 ## 🏗️ Architecture
 
@@ -96,13 +96,10 @@ Follow these instructions to set up the project locally for development and test
     *Update `DATABASE_URL` in `.env` to match your local PostgreSQL credentials.*
 
 4.  **Database Setup**
-    Initialize the database, run migrations, and seed default data:
+    Create the database and run migrations:
     ```bash
-    # Create PostgreSQL user and database
-    # (Adjust 'your_user' and 'your_password' as needed)
-    sudo -u postgres createuser -s your_user
-    psql -c "ALTER USER your_user WITH PASSWORD 'your_password';"
-    createdb iam_db
+    # Create the database using psql (or pgAdmin)
+    psql -U postgres -c "CREATE DATABASE iam_db;"
 
     # Run schema migrations
     npm run db:migrate

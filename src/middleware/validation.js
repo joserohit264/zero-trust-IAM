@@ -64,7 +64,8 @@ const schemas = {
         startDate: Joi.date().iso(),
         endDate: Joi.date().iso().greater(Joi.ref('startDate')),
         success: Joi.boolean(),
-        search: Joi.string().max(100)
+        search: Joi.string().max(100),
+        format: Joi.string().valid('csv', 'json')
     }),
 
     // UUID param

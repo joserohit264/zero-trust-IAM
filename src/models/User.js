@@ -3,7 +3,7 @@
  * Database operations for user management
  */
 const db = require('../config/database');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 const SALT_ROUNDS = 12;
 
