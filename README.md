@@ -5,7 +5,6 @@
 ![React](https://img.shields.io/badge/React-18-61dafb)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 
-## 📖 Introduction
 
 The **IAM System** is a robust, enterprise-grade web application designed to demonstrate advanced **Identity and Access Management** principles. It provides a secure foundation for managing user identities, enforcing **Role-Based Access Control (RBAC)**, and ensuring compliance through immutable **audit logging**.
 
@@ -23,23 +22,6 @@ The application is built using a modern, scalable technology stack:
 | **Security** | bcryptjs, speakeasy | Adaptive hashing, TOTP generation (RFC 6238) |
 | **Auth** | JWT, AES-256-GCM | Stateless sessions, secret encryption at rest |
 | **Validation** | Joi | Strict request payload validation |
-
-## ✨ Key Features
-
-### 🛡️ Core Security
-*   **Multi-Factor Authentication (MFA)**: Time-based One-Time Password (TOTP) integration compatible with Google/Microsoft Authenticator.
-*   **Secure Authentication**: bcryptjs password hashing (cost factor 12), account lockout policies, and session management via HTTP-only cookies.
-*   **Rate Limiting**: granular protection against brute-force attacks on login, MFA, and API endpoints.
-
-### 👥 Identity & Access Control
-*   **RBAC (Role-Based Access Control)**: Granular permission system with distinct `Admin`, `User`, and `Auditor` roles.
-*   **User Management**: Full lifecycle management (CRUD) for user accounts, role assignments, and status toggling.
-*   **Profile Management**: Self-service secure password changes and MFA enrollment.
-
-### 📊 Compliance & Observability
-*   **Tamper-Evident Audit Logs**: Append-only logging with **cryptographic hash chaining** to detect integrity violations.
-*   **Real-Time Monitoring**: Admin-only dashboard featuring live activity feeds and system statistics.
-*   **Data Export**: Admin-only log filtering and export capabilities (JSON/CSV) for external auditing.
 
 ## 🏗️ Architecture
 
@@ -61,6 +43,24 @@ graph TD
         Logs -->|Append Only| DB
     end
 ```
+
+## ✨ Key Features
+
+### 🛡️ Core Security
+*   **Multi-Factor Authentication (MFA)**: Time-based One-Time Password (TOTP) integration compatible with Google/Microsoft Authenticator.
+*   **Secure Authentication**: bcryptjs password hashing (cost factor 12), account lockout policies, and session management via HTTP-only cookies.
+*   **Rate Limiting**: granular protection against brute-force attacks on login, MFA, and API endpoints.
+
+### 👥 Identity & Access Control
+*   **RBAC (Role-Based Access Control)**: Granular permission system with distinct `Admin`, `User`, and `Auditor` roles.
+*   **User Management**: Full lifecycle management (CRUD) for user accounts, role assignments, and status toggling.
+*   **Profile Management**: Self-service secure password changes and MFA enrollment.
+
+### 📊 Compliance & Observability
+*   **Tamper-Evident Audit Logs**: Append-only logging with **cryptographic hash chaining** to detect integrity violations.
+*   **Real-Time Monitoring**: Admin-only dashboard featuring live activity feeds and system statistics.
+*   **Data Export**: Admin-only log filtering and export capabilities (JSON/CSV) for external auditing.
+
 
 ## 🚀 Getting Started
 
